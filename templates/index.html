@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Say Hello</title>
+    <link rel="stylsheet" href="{{url_for('static', filename='css/main.css')}}">
+    <img src="{{ url_for('static', filename= "plaj.jpg")}} " alt="logo" width="15%"> <br>
+    <img src="{{ url_for('static', filename= "cub/pic.jpg")}} " alt="blue" width="15%"> <br>
+</head>
+
+<style>
+    #s {
+    margin-left: 70px;
+    border-radius: 4;
+    align-items: center;
+    background-color: #f911a486;
+    font-size: 40px;
+    color: #0ae1fd;
+    text-align: center; color: rgba(2, 2, 2, 0.889)     
+}
+
+</style>
+
+<body>
+    <img src="./pia.jpg" width="15%">
+    <div id="s">
+      Europe
+    </div>
+    <p style="color: rgba(8, 125, 188, 0.689);font-size: 30px; text-align: center; "> WELCOME </p>
+
+    <br>
+    
+    <form action="greet" method="post">
+        {% for message in get_flashed_messages() %}
+        <p> {{message}}</p>
+        {% endfor %}
+        <br>
+        <input type="text" name="name_input">
+        <br>
+        <input type="submit" value="GREET" id="greet">
+    </form>
+</body>
+</html>
